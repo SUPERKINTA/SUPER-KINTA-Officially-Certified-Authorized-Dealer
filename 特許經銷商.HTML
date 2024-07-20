@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPER KINTA 官方特許經銷商</title>
+    <link href="https://live.staticflickr.com/65535/53863054259_f8814e0fb4_o.png" rel="icon" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 30px 20px;
+            background: #ffffff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        header {
+            text-align: center;
+            padding-bottom: 30px;
+        }
+        header h1 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .store {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .store:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .store img {
+            max-width: 100px;
+            border-radius: 50%;
+            border: 3px solid #3498db;
+        }
+        .store-details {
+            flex: 1;
+            padding-left: 30px;
+        }
+        .store-details h2 {
+            margin: 0;
+            color: #3498db;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .store-details p {
+            margin: 10px 0;
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+        .store-details button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.3s;
+            text-transform: uppercase;
+        }
+        .store-details button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            margin-right: 5px;
+            background-color: #FFD700;
+            color: black;
+            font-size: 12px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .badge:before, .badge:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-100%) skewX(-30deg);
+            transition: transform 0.5s ease-in-out;
+        }
+        .badge:after {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(100%) skewX(-30deg);
+            transition-delay: 0.25s;
+        }
+        .badge:hover:before {
+            transform: translateX(100%) skewX(-30deg);
+        }
+        .badge:hover:after {
+            transform: translateX(-100%) skewX(-30deg);
+        }
+        
+        /* 設置“極速到貨”徽章的背景色和文字顏色 */
+        .badge-speed {
+            background-color: #FF4500; 
+            color: white;
+        }
+        /* 設置“官方認證”徽章的背景色和文字顏色 */
+        .badge-certified {
+            background-color: #008df9;
+            color: white;
+        }
+        /* 設置“多元支付”徽章的背景色和文字顏色 */
+        .badge-payment {
+            background-color: #ff9900;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .store {
+                flex-direction: column;
+                text-align: center;
+            }
+            .store img {
+                margin-bottom: 20px;
+            }
+            .store-details {
+                padding-left: 0;
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 30px;
+            border-radius: 0 0 10px 10px;
+        }
+        footer p {
+            margin: 0;
+        }
+        /* Modal Styles */
+        #customAlertModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            align-items: center;
+            justify-content: center;
+        }
+        #customAlertModal .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 300px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        #customAlertModal .modal-content p {
+            margin: 0 0 20px;
+        }
+        #customAlertModal .modal-content button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        #customAlertModal .modal-content button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✅SUPER KINTA 官方認證 特許經銷商</h1>
+        </header>
+        <div class="store">
+            <img src="https://live.staticflickr.com/65535/53864607181_21e671484f_o.png" alt="店家 Logo">
+            <div class="store-details">
+                <h2>✅台中新動力【總店】</h2>
+                <p>
+                    <span class="badge badge-speed">🚚極速到貨</span>
+                    <span class="badge badge-certified">✅官方認證</span>
+                    <span class="badge badge-payment">💳支持多元支付|可面交</span>
+                </p>
+                <p>販售項目: K7-PLUS | K7S | F5 | D系列直上 |D系列直插 </p>
+                <button onclick="window.open('https://shopee.tw/elisa668', '_blank')">✅前往總店</button>
+            </div>
+        </div>
+        <div class="store">
+            <img src="https://live.staticflickr.com/65535/53865027695_2c7267f583_o.png" alt="店家 Logo">
+            <div class="store-details">
+                <h2>✅ SUPER KINTA 官方網站</h2>
+                <p>
+                    <span class="badge badge-speed">🚚極速到貨</span>
+                    <span class="badge badge-certified">✅官方網站</span>
+                    <span class="badge badge-payment">💳支持多元支付|可面交</span>
+                </p>
+                <p>販售項目: K7-PLUS | K7S | F5 | D系列直上 |D系列直插 </p>
+                <button onclick="window.open('https://superkinta.github.io/SUPER-KINTA-LED/SUPER%20KINTA%20LED%20%E5%AE%98%E6%96%B9%E6%AD%A3%E7%89%88', '_blank')">✅SUPER KINTA 官方網站</button>
+            </div>
+        </div>
+        <div class="store">
+            <img src="https://live.staticflickr.com/65535/53863674887_903db423c3_o.png" alt="店家 Logo">
+            <div class="store-details">
+                <h2>✅台灣倍樂 | 未來會上架</h2>
+                <p>
+                    <span class="badge badge-speed">🚚極速到貨</span>
+                    <span class="badge badge-certified">✅官方認證</span>
+                    <span class="badge badge-payment">💳可線上支付|可面交</span>
+                </p>
+                <p>販售項目: K7-PLUS | K7S | F5 | D系列直上 |D系列直插</p>
+                <button onclick="window.open('https://shopee.tw/bryan948888', '_blank')"><strong>✅前往認證經銷商</button></strong>
+            </div>
+        </div>
+        <div class="store">
+            <img src="store-logo.png" alt="店家 Logo">
+            <div class="store-details">
+                <h2>✅貝樂創意 | 未來會上架</h2>
+                <p>
+                    <span class="badge badge-speed">🚚極速到貨</span>
+                    <span class="badge badge-certified">✅官方認證</span>
+                    <span class="badge badge-payment">💳可線上支付|可面交</span>
+                </p>
+                <p>販售項目: K7-PLUS | K7S | F5 | D系列直上 |D系列直插</p>
+                <button onclick="window.open('https://shopee.tw/bvyam94888', '_blank')">✅前往認證經銷商</button>
+            </div>
+        </div>
+        <div class="store">
+            <img src="https://live.staticflickr.com/65535/53863750882_4e3a607296_q.jpg" alt="店家 Logo">
+            <div class="store-details">
+                <h2>店家名稱: 🏢徵求【合作商+特約安裝廠】</h2>
+                <p>
+                    <span class="badge badge-speed">🗂️詳情請到【台中新動力洽談】</span>
+                </p>
+                <p>販售項目: 【請到台中新動力洽談】</p>
+                <button onclick="window.open('https://shopee.tw/elisa668', '_blank')">✅前往洽談</button>
+            </div>
+        </div>
+        <div class="store">
+            <img src="https://live.staticflickr.com/65535/53863750882_4e3a607296_q.jpg" alt="店家 Logo">
+            <div class="store-details">
+                <h2>店家名稱: 🏢徵求【合作商+特約安裝廠】</h2>
+                <p>
+                    <span class="badge badge-speed">🗂️詳情請到【台中新動力洽談】</span>
+                </p>
+                <p>販售項目: 【請到台中新動力洽談】</p>
+                <button onclick="window.open('https://shopee.tw/elisa668', '_blank')">✅前往洽談</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 SUPER KINTA. 保留所有權利，盜用必究。</p>
+    </footer>
+
+    <!-- Custom Alert Modal -->
+    <div id="customAlertModal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <button onclick="closeCustomAlertModal()">關閉</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 禁止右鍵菜單
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                showModal('右鍵菜單已被禁用。【SUPER KINTA. 保留所有權利，盜用必究。】');
+            });
+
+            document.addEventListener('keydown', function(e) {
+                const message = '禁止訪問開發者工具。【SUPER KINTA. 保留所有權利，盜用必究。】';
+                // 禁用 F12
+                if (e.code === 'F12') {
+                    e.preventDefault();
+                    showModal(message);
+                    return;
+                }
+
+                // 禁用 Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+                if (e.ctrlKey && e.shiftKey && ['KeyI', 'KeyJ', 'KeyC'].includes(e.code)) {
+                    e.preventDefault();
+                    showModal(message);
+                    return;
+                }
+
+                // 禁用 Ctrl+U
+                if (e.ctrlKey && e.code === 'KeyU') {
+                    e.preventDefault();
+                    showModal(message);
+                    return;
+                }
+            });
+
+            function showModal(message) {
+                document.getElementById('modalMessage').innerText = message;
+                document.getElementById('customAlertModal').style.display = 'flex';
+            }
+
+            window.showModal = showModal;
+            window.closeCustomAlertModal = function() {
+                document.getElementById('customAlertModal').style.display = 'none';
+            };
+
+            function adjustView() {
+                let device = navigator.userAgent;
+                if (/android/i.test(device)) {
+                    document.body.style.zoom = "0.8";
+                } else if (/iPhone|iPad|iPod/i.test(device)) {
+                    document.body.style.zoom = "0.85";
+                } else {
+                    document.body.style.zoom = "1.0";
+                }
+            }
+
+            adjustView();
+            window.addEventListener('resize', adjustView);
+        });
+    </script>
+</body>
+</html>
